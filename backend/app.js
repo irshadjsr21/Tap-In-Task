@@ -1,12 +1,15 @@
 // ********* Importing Modules *************
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors");
+
 const config = require("./config");
 const { createError } = require("./utils/helperFunctions");
 const addUserMiddleware = require("./middlewares/addUser");
 
 // *** Initializing app and Middleware ******
 const app = express();
+app.use(cors());
 app.use(bodyParser.json());
 app.use(addUserMiddleware);
 

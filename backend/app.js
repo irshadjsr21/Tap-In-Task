@@ -7,7 +7,7 @@ const config = require("./config");
 const { createError } = require("./utils/helperFunctions");
 const addUserMiddleware = require("./middlewares/addUser");
 
-// *** Initializing app and Middleware ******
+// ***** Initializing app and Middleware ******
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
@@ -19,7 +19,7 @@ const authRouter = require("./routes/auth");
 // ********* Setting Routers *************
 app.use("/api", authRouter);
 
-// ********* Invalid URL *************
+// ********* Handle Invalid URL *************
 app.use((req, res, next) => {
   throw createError(404, "Invalid URL");
 });
